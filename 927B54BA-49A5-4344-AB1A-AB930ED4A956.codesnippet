@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>IDECodeSnippetCompletionScopes</key>
+	<array>
+		<string>All</string>
+	</array>
+	<key>IDECodeSnippetContents</key>
+	<string>NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
+    
+    NSString *currentAppVersion = [[NSBundle mainBundle] objectForInfoDictionaryKey:@"CFBundleShortVersionString"];
+    NSString *previousVersion = [defaults objectForKey:@"appVersion"];
+    if (!previousVersion)
+    {
+        //launch == 1
+        [defaults setObject:currentAppVersion forKey:@"appVersion"];
+        [defaults synchronize];
+}
+    else if ([previousVersion isEqualToString:currentAppVersion])
+    {
+        //launch &gt; 1
+}
+    else
+    {
+        //New Update
+}</string>
+	<key>IDECodeSnippetIdentifier</key>
+	<string>927B54BA-49A5-4344-AB1A-AB930ED4A956</string>
+	<key>IDECodeSnippetLanguage</key>
+	<string>Xcode.SourceCodeLanguage.Objective-C</string>
+	<key>IDECodeSnippetSummary</key>
+	<string>Application Run Count</string>
+	<key>IDECodeSnippetTitle</key>
+	<string>Application Run Count</string>
+	<key>IDECodeSnippetUserSnippet</key>
+	<true/>
+	<key>IDECodeSnippetVersion</key>
+	<integer>2</integer>
+</dict>
+</plist>

@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>IDECodeSnippetCompletionPrefix</key>
+	<string>validatetextfield</string>
+	<key>IDECodeSnippetCompletionScopes</key>
+	<array>
+		<string>ClassImplementation</string>
+	</array>
+	<key>IDECodeSnippetContents</key>
+	<string>#pragma mark -
+#pragma mark Text Field Validations
+#pragma mark -
+
+#define MAX_LENGTH 50
+#define ALPHA                   @"ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz"
+#define NUMERIC                 @"1234567890"
+#define ALPHA_NUMERIC           ALPHA NUMERIC
+
+- (BOOL)textField:(UITextField *)textField shouldChangeCharactersInRange:(NSRange)range replacementString:(NSString *)string
+{   if (range.location &gt;= 20 &amp;&amp; [textField isEqual:self.txtName])
+return NO;
+if (range.location &gt;= 120 &amp;&amp; [textField isEqual:self.messagearea])
+return NO;
+if (range.location &gt;= 15 &amp;&amp; [textField isEqual:self.txtPhone])
+return NO;
+if (range.location &gt;= 20 &amp;&amp; [textField isEqual:self.txtEmail])
+return NO;
+    NSCharacterSet *unacceptedInput = nil;
+    if (textField == self.txtInsuredName || textField == self.txtAgent || textField == self.txtCompany || textField == self.txtCity || textField == self.txtState || textField == self.txtPrintName || textField == self.txtRelationship){
+        unacceptedInput = [[NSCharacterSet characterSetWithCharactersInString:ALPHA] invertedSet];
+        return ([[string componentsSeparatedByCharactersInSet:unacceptedInput] count] &lt;= 1);
+    }
+    if (textField == self.txtZip || textField == self.txtClaimNo) {
+        unacceptedInput = [[NSCharacterSet characterSetWithCharactersInString:NUMERIC] invertedSet];
+        return ([[string componentsSeparatedByCharactersInSet:unacceptedInput] count] &lt;= 1);
+    }
+
+    
+    if (textField.text.length &gt;= MAX_LENGTH &amp;&amp; range.length == 0)
+    {
+        return NO; // return NO to not change text
+    }
+    if (textField.text.length &gt;= 20 &amp;&amp; range.length == 0 &amp;&amp; [textField isEqual:self.txtCity] )
+    {
+        return NO; // return NO to not change text
+    }
+    if (textField.text.length &gt;= 10 &amp;&amp; range.length == 0 &amp;&amp; [textField isEqual:self.txtZip] )
+    {
+        return NO; // return NO to not change text
+    }
+    if ([textField isEqual:self.txtZip] )
+    {
+        return [string isEqualToString:@""] || 
+        ([string stringByTrimmingCharactersInSet:
+          [[NSCharacterSet decimalDigitCharacterSet] invertedSet]].length &gt; 0);
+    }
+    else
+    {
+        return YES;
+    }
+if ([[txtEmail.text componentsSeparatedByString:@"@"] count] &gt; 1){
+    unacceptedInput = [[NSCharacterSet characterSetWithCharactersInString:[ALPHA_NUMERIC stringByAppendingString:@".-"]] invertedSet];
+    return ([[string componentsSeparatedByCharactersInSet:unacceptedInput] count] &lt;= 1);}
+else{
+    unacceptedInput = [[NSCharacterSet characterSetWithCharactersInString:[ALPHA_NUMERIC stringByAppendingString:@".!#$%&amp;'*+-/=?^_`{|}~@"]] invertedSet]; 
+    return ([[string componentsSeparatedByCharactersInSet:unacceptedInput] count] &lt;= 1);}
+if([[textField text] characterAtIndex:([[textField text] length]-1)] == ' ' &amp;&amp; 
+   [string isEqualToString:@" "]) return NO;
+
+}
+</string>
+	<key>IDECodeSnippetIdentifier</key>
+	<string>4BB68E78-F829-47D5-8875-ACC550FDB84E</string>
+	<key>IDECodeSnippetLanguage</key>
+	<string>Xcode.SourceCodeLanguage.Objective-C</string>
+	<key>IDECodeSnippetTitle</key>
+	<string>Text Field Validations</string>
+	<key>IDECodeSnippetUserSnippet</key>
+	<true/>
+	<key>IDECodeSnippetVersion</key>
+	<integer>2</integer>
+</dict>
+</plist>

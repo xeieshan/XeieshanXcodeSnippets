@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>IDECodeSnippetCompletionScopes</key>
+	<array>
+		<string>All</string>
+	</array>
+	<key>IDECodeSnippetContents</key>
+	<string>#import "UIResponder+FirstResponder.h"
+        
+        static __weak id currentFirstResponder;
+        
+        @implementation UIResponder (FirstResponder)
+        
+        +(id)currentFirstResponder {
+            currentFirstResponder = nil;
+            [[UIApplication sharedApplication] sendAction:@selector(findFirstResponder:) to:nil from:nil forEvent:nil];
+            return currentFirstResponder;
+        }
+        
+        -(void)findFirstResponder:(id)sender {
+            currentFirstResponder = self;
+        }
+        
+        @end</string>
+	<key>IDECodeSnippetIdentifier</key>
+	<string>88642B90-EF5B-447F-BB2A-4431BCF079A9</string>
+	<key>IDECodeSnippetLanguage</key>
+	<string>Xcode.SourceCodeLanguage.Objective-C</string>
+	<key>IDECodeSnippetSummary</key>
+	<string>Current First Responder</string>
+	<key>IDECodeSnippetTitle</key>
+	<string>Current First Responder</string>
+	<key>IDECodeSnippetUserSnippet</key>
+	<true/>
+	<key>IDECodeSnippetVersion</key>
+	<integer>2</integer>
+</dict>
+</plist>

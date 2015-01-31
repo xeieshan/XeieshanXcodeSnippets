@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>IDECodeSnippetCompletionScopes</key>
+	<array>
+		<string>CodeBlock</string>
+	</array>
+	<key>IDECodeSnippetContents</key>
+	<string> NSString *atS=@"@";
+	NSString *dotS=@".";
+    NSString *strEmailLogin=txtEmailLogin.text;
+	NSRange rangeatS = [strEmailLogin rangeOfString:atS];
+    NSRange rangedotcomS = [strEmailLogin rangeOfString:dotS];
+	int lengthatS = rangeatS.length;
+	int lengthdotcomS = rangedotcomS.length;
+    if([txtEmailLogin.text isEqualToString:@""]||[txtPasswordLogin.text isEqualToString:@""]) {
+        UIAlertView* alertView = [[UIAlertView alloc] initWithTitle:@"Field Error"
+                                                            message:@"Please enter Login Details!" delegate:self 
+                                                  cancelButtonTitle:@"OK" otherButtonTitles:nil];
+        [alertView show];
+    }else  
+    {
+        [self showActivityIndicator];
+        if(lengthatS == 1 &amp;&amp; lengthdotcomS == 1)
+        {
+            LoginRequest *loginRequest = [[LoginRequest alloc] init];
+            loginRequest.delegate = self;
+            [loginRequest loginUser:self.txtEmailLogin.text password:self.txtPasswordLogin.text];
+        } 
+        else
+        {
+            UIAlertView* alertView = [[UIAlertView alloc] initWithTitle:@"Invalid Email "
+                                                                message:@"Please enter a Valid Email And Same Passwords!" delegate:self 
+                                                      cancelButtonTitle:@"OK" otherButtonTitles:nil];
+            [alertView show];
+        }
+        
+    }</string>
+	<key>IDECodeSnippetIdentifier</key>
+	<string>9BFDCB97-4359-4238-BE38-0FE5473941D0</string>
+	<key>IDECodeSnippetLanguage</key>
+	<string>Xcode.SourceCodeLanguage.Objective-C</string>
+	<key>IDECodeSnippetTitle</key>
+	<string>Email @ And .</string>
+	<key>IDECodeSnippetUserSnippet</key>
+	<true/>
+	<key>IDECodeSnippetVersion</key>
+	<integer>2</integer>
+</dict>
+</plist>

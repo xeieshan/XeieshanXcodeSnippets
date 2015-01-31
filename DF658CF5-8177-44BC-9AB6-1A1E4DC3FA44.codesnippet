@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>IDECodeSnippetCompletionPrefix</key>
+	<string>hasRanBefore</string>
+	<key>IDECodeSnippetCompletionScopes</key>
+	<array>
+		<string>CodeBlock</string>
+		<string>ClassImplementation</string>
+	</array>
+	<key>IDECodeSnippetContents</key>
+	<string>#pragma mark -
+#pragma mark Checking If You App Has Been Run Before
+#pragma mark -
+
+-(BOOL)hasRanBefore
+{
+    NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
+    BOOL hasRanBefore = [defaults boolForKey:@"hasRanBefore"];
+    return hasRanBefore;
+}
+</string>
+	<key>IDECodeSnippetIdentifier</key>
+	<string>DF658CF5-8177-44BC-9AB6-1A1E4DC3FA44</string>
+	<key>IDECodeSnippetLanguage</key>
+	<string>Xcode.SourceCodeLanguage.Objective-C</string>
+	<key>IDECodeSnippetSummary</key>
+	<string>Checking If You App Has Been Run Before</string>
+	<key>IDECodeSnippetTitle</key>
+	<string>Checking If You App Has Been Run Before</string>
+	<key>IDECodeSnippetUserSnippet</key>
+	<true/>
+	<key>IDECodeSnippetVersion</key>
+	<integer>2</integer>
+</dict>
+</plist>

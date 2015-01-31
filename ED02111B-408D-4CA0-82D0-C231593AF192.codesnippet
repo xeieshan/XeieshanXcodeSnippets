@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>IDECodeSnippetCompletionPrefix</key>
+	<string>textFieldDidUpdate</string>
+	<key>IDECodeSnippetCompletionScopes</key>
+	<array>
+		<string>ClassImplementation</string>
+	</array>
+	<key>IDECodeSnippetContents</key>
+	<string>-(IBAction) textFieldDidUpdate:(id)sender {
+	UITextField * textField = (UITextField *) sender;
+    
+	NSDictionary * l337 = [NSDictionary dictionaryWithObjectsAndKeys:
+						   @"4",@"a",
+						   @"|3",@"b",
+						   @"3",@"e",
+						   @"1",@"i",
+						   @"1",@"l",
+						   @"0",@"o",
+						   @"|2",@"r",
+						   @"5",@"s",
+						   @"7",@"t",
+						   nil];
+	NSString * newString = textField.text;
+    
+	for(NSString * word in l337.allKeys) {
+		NSString * h4x = [l337 objectForKey:word];
+		newString = [newString stringByReplacingOccurrencesOfString:word withString:h4x];
+	}
+    
+	liveOutputTextView.text = newString;
+}</string>
+	<key>IDECodeSnippetIdentifier</key>
+	<string>ED02111B-408D-4CA0-82D0-C231593AF192</string>
+	<key>IDECodeSnippetLanguage</key>
+	<string>Xcode.SourceCodeLanguage.Objective-C</string>
+	<key>IDECodeSnippetTitle</key>
+	<string>Textfield Translator</string>
+	<key>IDECodeSnippetUserSnippet</key>
+	<true/>
+	<key>IDECodeSnippetVersion</key>
+	<integer>2</integer>
+</dict>
+</plist>

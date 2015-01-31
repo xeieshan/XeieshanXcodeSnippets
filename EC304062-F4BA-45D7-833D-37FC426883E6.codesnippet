@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>IDECodeSnippetCompletionPrefix</key>
+	<string>DataFetcher</string>
+	<key>IDECodeSnippetCompletionScopes</key>
+	<array>
+		<string>StringOrComment</string>
+	</array>
+	<key>IDECodeSnippetContents</key>
+	<string>NSMutableDictionary *params = [[NSMutableDictionary alloc] init];
+    [params setValue:@"" forKey:@"access_token"];
+    [params setValue:_txtTitle.text forKey:@"res_title"];
+    [params setValue:_txtShrtDescription.text forKey:@"res_info"];
+    [params setValue:_txtPrice.text forKey:@"res_price"];
+    [params setValue:_txtLongDescription.text forKey:@"res_description"];
+    [params setValue:_txtAddress.text forKey:@"res_address"];
+    [params setValue:_txtPhone.text forKey:@"res_pnumber"];
+     [params setValue:[NSString stringWithFormat:@"%@ - %@",_txtStaartDate.text,_txtEndingDate.text] forKey:@"hours"];
+    [params setValue:_txtWebsiteLink.text forKey:@"res_link"];
+    
+    DataFetcher *fetcher  = [[DataFetcher alloc] init];
+    //fetcher.delegate=self;
+    [fetcher fetchDataForUrl:[NSString stringWithFormat:@"%@%@",TALK_BASEURL,ADD_NEW_COMMENT_URL] andDelegate:self andPostDataDict:params];</string>
+	<key>IDECodeSnippetIdentifier</key>
+	<string>EC304062-F4BA-45D7-833D-37FC426883E6</string>
+	<key>IDECodeSnippetLanguage</key>
+	<string>Xcode.SourceCodeLanguage.Objective-C</string>
+	<key>IDECodeSnippetPlatformFamily</key>
+	<string>iphoneos</string>
+	<key>IDECodeSnippetTitle</key>
+	<string>Web Service Data Fetcher</string>
+	<key>IDECodeSnippetUserSnippet</key>
+	<true/>
+	<key>IDECodeSnippetVersion</key>
+	<integer>2</integer>
+</dict>
+</plist>

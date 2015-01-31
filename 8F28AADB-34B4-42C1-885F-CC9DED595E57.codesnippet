@@ -1,0 +1,140 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>IDECodeSnippetCompletionScopes</key>
+	<array>
+		<string>Preprocessor</string>
+	</array>
+	<key>IDECodeSnippetContents</key>
+	<string>-(BOOL) textFieldShouldReturn:(UITextField *)textField{
+    
+    
+    [name resignFirstResponder];
+    //[phone resignFirstResponder];
+    [email resignFirstResponder];
+    return YES;
+}
+- (void)textFieldDidBeginEditing:(UITextField *)textField {
+    
+    
+    
+    
+    //check for done
+	if (textField == name || textField == email ) {
+		addDone = NO;
+        [doneButton removeFromSuperview];
+	}else{
+		addDone = YES;
+    [self performSelector:@selector(addButtonToKeyboard) withObject:nil afterDelay:0];}
+    
+    
+    //if editing textfields, then do not add DONE button
+	
+}
+
+- (void)textFieldDidEndEditing:(UITextField *)textField
+{
+    CGRect viewFrame = viewoftextfield.frame;
+    viewFrame.origin.y += animatedDistance;
+    
+    [UIView beginAnimations:nil context:NULL];
+    [UIView setAnimationBeginsFromCurrentState:YES];
+    [UIView setAnimationDuration:KEYBOARD_ANIMATION_DURATION];
+    
+    [viewoftextfield setFrame:viewFrame];
+    
+    [UIView commitAnimations];
+}
+#pragma mark Done Button methods
+- (void)keyboardWillShow:(NSNotification *)note {
+    NSLog(@"keyboardWillShow");
+    if(addDone == NO){
+		[doneButton removeFromSuperview];
+		doneButton = nil;
+		return;
+	}else{
+		if ([[[UIDevice currentDevice] systemVersion] floatValue] &lt; 3.2) {
+			[self performSelector:@selector(addButtonToKeyboard) withObject:nil afterDelay:0];
+			
+		}
+	}
+    
+    
+}
+
+- (void)keyboardDidShow:(NSNotification *)note {
+    
+    NSLog(@"keyboardDidShow");
+    if(addDone == NO){
+		[doneButton removeFromSuperview];
+		doneButton = nil;
+		return;
+	}else{
+		if ([[[UIDevice currentDevice] systemVersion] floatValue] &gt;= 3.2) {
+			[self performSelector:@selector(addButtonToKeyboard) withObject:nil afterDelay:0];
+		}
+	} 
+}
+- (void)keyboardWillHide:(NSNotification *)note {
+    NSLog(@"keyboardWillHide");
+	if(addDone == YES){
+		[doneButton removeFromSuperview];
+		doneButton = nil;
+		addDone = NO;
+	}	
+}
+
+- (void)addButtonToKeyboard {
+	// create custom button
+    
+    doneButton = [UIButton buttonWithType:UIButtonTypeCustom];
+	
+	doneButton.frame = CGRectMake(0, 163, 106, 53);
+	doneButton.adjustsImageWhenHighlighted = NO;
+	if ([[[UIDevice currentDevice] systemVersion] floatValue] &gt;= 3.0) {
+		[doneButton setImage:[UIImage imageNamed:@"DoneUp3.png"] forState:UIControlStateNormal];
+		[doneButton setImage:[UIImage imageNamed:@"DoneDown3.png"] forState:UIControlStateHighlighted];
+	} else {        
+		[doneButton setImage:[UIImage imageNamed:@"doneup.png"] forState:UIControlStateNormal];
+		[doneButton setImage:[UIImage imageNamed:@"donedown.png"] forState:UIControlStateHighlighted];
+	}
+	[doneButton addTarget:self action:@selector(doneButton) forControlEvents:UIControlEventTouchUpInside];
+	// locate keyboard view
+	UIWindow* tempWindow = [[[UIApplication sharedApplication] windows] objectAtIndex:1];
+	UIView* keyboard;
+	for(int i=0; i&lt;[tempWindow.subviews count]; i++) {
+		keyboard = [tempWindow.subviews objectAtIndex:i];
+		// keyboard found, add the button
+		if ([[[UIDevice currentDevice] systemVersion] floatValue] &gt;= 3.2) {
+			if([[keyboard description] hasPrefix:@"&lt;UIPeripheralHost"] == YES)
+				[keyboard addSubview:doneButton];
+		} else {
+			if([[keyboard description] hasPrefix:@"&lt;UIKeyboard"] == YES)
+				[keyboard addSubview:doneButton];
+		}
+	}
+}
+
+
+
+-(BOOL)doneButton{
+	
+    //	newspopupdonateamount= newspopuptextfield.text;
+    //	donateintegar = [newspopupdonateamount integerValue];
+	[phone resignFirstResponder];
+    //	[newspopupscroll setContentOffset:CGPointMake(0,csize.height - 192) animated:YES];
+	return YES;
+}</string>
+	<key>IDECodeSnippetIdentifier</key>
+	<string>8F28AADB-34B4-42C1-885F-CC9DED595E57</string>
+	<key>IDECodeSnippetLanguage</key>
+	<string>Xcode.SourceCodeLanguage.Objective-C</string>
+	<key>IDECodeSnippetTitle</key>
+	<string>textfield numpad Donebutton</string>
+	<key>IDECodeSnippetUserSnippet</key>
+	<true/>
+	<key>IDECodeSnippetVersion</key>
+	<integer>2</integer>
+</dict>
+</plist>

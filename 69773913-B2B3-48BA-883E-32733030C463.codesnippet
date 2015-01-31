@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>IDECodeSnippetCompletionPrefix</key>
+	<string>Macros</string>
+	<key>IDECodeSnippetCompletionScopes</key>
+	<array>
+		<string>StringOrComment</string>
+		<string>TopLevel</string>
+	</array>
+	<key>IDECodeSnippetContents</key>
+	<string>#define ApplicationDelegate ((OAAppDelegate *)[UIApplication sharedApplication].delegate)
+
+#ifndef ALog
+#define ALog(fmt, ...) {NSLog((@"%s [Line %d] " fmt), __PRETTY_FUNCTION__, __LINE__, ##__VA_ARGS__);};
+#endif
+
+#ifdef DEBUG
+#ifndef DLog
+#   define DLog(fmt, ...) {NSLog((@"%s [Line %d] " fmt), __PRETTY_FUNCTION__, __LINE__, ##__VA_ARGS__);}
+#endif
+#ifndef ELog
+#   define ELog(err) {if(err) DLog(@"%@", err)}
+#endif
+#else
+#ifndef DLog
+#   define DLog(...)
+#endif
+#ifndef ELog
+#   define ELog(err)
+#endif
+#endif
+#define IS_IPHONE_5 ( fabs( ( double )[ [ UIScreen mainScreen ] bounds ].size.height - ( double )568 ) &lt; DBL_EPSILON )
+
+#define IS_IOS_6 floor(NSFoundationVersionNumber)&lt;=NSFoundationVersionNumber_iOS_6_1</string>
+	<key>IDECodeSnippetIdentifier</key>
+	<string>69773913-B2B3-48BA-883E-32733030C463</string>
+	<key>IDECodeSnippetLanguage</key>
+	<string>Xcode.SourceCodeLanguage.Objective-C-Plus-Plus</string>
+	<key>IDECodeSnippetSummary</key>
+	<string>Necessary Macros</string>
+	<key>IDECodeSnippetTitle</key>
+	<string>Necessary Macros</string>
+	<key>IDECodeSnippetUserSnippet</key>
+	<true/>
+	<key>IDECodeSnippetVersion</key>
+	<integer>2</integer>
+</dict>
+</plist>

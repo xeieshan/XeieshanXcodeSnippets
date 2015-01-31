@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>IDECodeSnippetCompletionScopes</key>
+	<array>
+		<string>ClassImplementation</string>
+	</array>
+	<key>IDECodeSnippetContents</key>
+	<string>#pragma mark -
+#pragma mark Add Shadow Above Or Under
+#pragma mark -
+- (void)applyShadow
+{
+    // draw shadow
+    self.view.layer.masksToBounds = NO;
+    //-3 up 3 down
+    self.view.layer.shadowOffset = CGSizeMake(0, 3);
+    self.view.layer.shadowOpacity = 0.5;
+    self.view.layer.shadowPath = [UIBezierPath bezierPathWithRect:self.view.bounds].CGPath;
+}</string>
+	<key>IDECodeSnippetIdentifier</key>
+	<string>593A81C9-7F01-4D87-AF5D-A7E795A0871F</string>
+	<key>IDECodeSnippetLanguage</key>
+	<string>Xcode.SourceCodeLanguage.Objective-C</string>
+	<key>IDECodeSnippetPlatformFamily</key>
+	<string>iphoneos</string>
+	<key>IDECodeSnippetSummary</key>
+	<string>applyShadow</string>
+	<key>IDECodeSnippetTitle</key>
+	<string>Add Shadow</string>
+	<key>IDECodeSnippetUserSnippet</key>
+	<true/>
+	<key>IDECodeSnippetVersion</key>
+	<integer>2</integer>
+</dict>
+</plist>

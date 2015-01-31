@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>IDECodeSnippetCompletionPrefix</key>
+	<string>textFieldDidUpdate</string>
+	<key>IDECodeSnippetCompletionScopes</key>
+	<array>
+		<string>ClassImplementation</string>
+	</array>
+	<key>IDECodeSnippetContents</key>
+	<string>-(IBAction) textFieldDidUpdate:(id)sender {
+	UITextField * textField = (UITextField *) sender;
+	int maxChars = 140;
+	int charsLeft = maxChars - [textField.text length];
+    
+	if(charsLeft == 0) {
+		UIAlertView * alert = [[UIAlertView alloc] initWithTitle:@"No more characters"
+                                                         message:[NSString stringWithFormat:@"You have reached the character limit of %d.",maxChars]
+                                                        delegate:nil
+                                               cancelButtonTitle:@"Ok"
+                                               otherButtonTitles:nil];
+		[alert show];
+		[alert release];
+	}
+    
+	liveOutputTextView.text = [NSString stringWithFormat:@"%d characters remaining.",charsLeft];
+}</string>
+	<key>IDECodeSnippetIdentifier</key>
+	<string>EF37CB6B-11F4-47B7-99AD-CA1936D0D477</string>
+	<key>IDECodeSnippetLanguage</key>
+	<string>Xcode.SourceCodeLanguage.Objective-C</string>
+	<key>IDECodeSnippetTitle</key>
+	<string>Text Field Check Count</string>
+	<key>IDECodeSnippetUserSnippet</key>
+	<true/>
+	<key>IDECodeSnippetVersion</key>
+	<integer>2</integer>
+</dict>
+</plist>

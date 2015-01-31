@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>IDECodeSnippetCompletionPrefix</key>
+	<string>CheetSheet Block </string>
+	<key>IDECodeSnippetCompletionScopes</key>
+	<array>
+		<string>All</string>
+	</array>
+	<key>IDECodeSnippetContents</key>
+	<string>// As a local variable
+         returnType (^blockName)(parameterTypes) = ^returnType(parameters) {
+             // Block code here
+         };
+         
+         // As a property
+         @property (nonatomic, copy) returnType (^blockName)(parameterTypes);
+         
+         // As a method parameter
+         - (void)someMethodThatTakesABlock:(returnType (^)(parameterTypes))blockName {
+             // Block code here
+         };
+         
+         // As an argument to a method call
+         [someObject someMethodThatTakesABlock: ^returnType (parameters) {
+             // Block code here
+         }];
+         
+         // As a typedef
+         typedef returnType (^TypeName)(parameterTypes);
+         TypeName blockName = ^(parameters) {
+             // Block code here
+         };</string>
+	<key>IDECodeSnippetIdentifier</key>
+	<string>B8A2E161-6EFA-4151-8B55-85A60D79804C</string>
+	<key>IDECodeSnippetLanguage</key>
+	<string>Xcode.SourceCodeLanguage.Objective-C</string>
+	<key>IDECodeSnippetSummary</key>
+	<string>Block Cheet Sheet</string>
+	<key>IDECodeSnippetTitle</key>
+	<string>Block Cheat Sheet</string>
+	<key>IDECodeSnippetUserSnippet</key>
+	<true/>
+	<key>IDECodeSnippetVersion</key>
+	<integer>2</integer>
+</dict>
+</plist>

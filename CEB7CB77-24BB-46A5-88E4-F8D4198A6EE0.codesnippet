@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>IDECodeSnippetCompletionScopes</key>
+	<array>
+		<string>CodeBlock</string>
+	</array>
+	<key>IDECodeSnippetContents</key>
+	<string>if ([MFMailComposeViewController canSendMail]) {
+            [self showEmailModalView];}
+        else
+            {
+                UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Status:" message:@"Your iPhone is not currently configured to send mail." delegate:nil cancelButtonTitle:@"ok" otherButtonTitles:nil];
+                
+                [alert show];
+
+                }
+    }
+
+#pragma mark Email methods
+-(void) showEmailModalView {
+    
+    MFMailComposeViewController *picker = [[MFMailComposeViewController alloc] init];
+    picker.mailComposeDelegate = self; // &lt;- very important step if you want feedbacks on what the user did with your email sheet
+    NSArray *usersTo = [NSArray arrayWithObject: @"info@net-ilinkinsurance.com"];
+    [picker setToRecipients:usersTo];
+    [picker setSubject:@"I Want To Participate in Lucky Draw."];
+    [picker setCcRecipients:usersTo];
+    // Fill out the email body text
+    NSString *emailBody =
+    [NSString stringWithFormat:@"I, %@ Want To Participate In Lucky Draw \n My Phone No Is : %@ Sent from '%@' ",sname,sphone, semail];
+    
+    [picker setMessageBody:emailBody isHTML:YES]; // depends. Mostly YES, unless you want to send it as plain text (boring)
+    
+    picker.navigationBar.barStyle = UIBarStyleBlack; // choose your style, unfortunately, Translucent colors behave quirky.
+    
+    [self.navigationController presentModalViewController:picker animated:YES];
+    
+}
+- (void)mailComposeController:(MFMailComposeViewController*)controller didFinishWithResult:(MFMailComposeResult)result error:(NSError*)error {
+	UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Status:" message:@"" delegate:nil cancelButtonTitle:@"ok" otherButtonTitles:nil];
+	
+	switch (result) {
+		case MFMailComposeResultCancelled:
+			alert.message = @"Message Canceled";
+			break;
+		case MFMailComposeResultSaved:
+			alert.message = @"Message Saved";
+			break;
+		case MFMailComposeResultSent:
+			alert.message = @"Message Sent";
+			break;
+		case MFMailComposeResultFailed:
+			alert.message = @"Message Failed";
+			break;
+		default:
+			alert.message = @"Message Not Sent";
+		break;	}
+	[self.navigationController dismissModalViewControllerAnimated:YES];
+	[self.view setFrame:CGRectMake(0, 0, 320, 412)];
+	[alert show];
+    self.licensecontroller = [[LicenseViewController alloc] initWithNibName:@"LicenseViewController" bundle:nil];
+    [self.navigationController pushViewController:self.licensecontroller animated:YES];
+    
+	
+}
+</string>
+	<key>IDECodeSnippetIdentifier</key>
+	<string>CEB7CB77-24BB-46A5-88E4-F8D4198A6EE0</string>
+	<key>IDECodeSnippetLanguage</key>
+	<string>Xcode.SourceCodeLanguage.Objective-C</string>
+	<key>IDECodeSnippetTitle</key>
+	<string>In App Email </string>
+	<key>IDECodeSnippetUserSnippet</key>
+	<true/>
+	<key>IDECodeSnippetVersion</key>
+	<integer>2</integer>
+</dict>
+</plist>

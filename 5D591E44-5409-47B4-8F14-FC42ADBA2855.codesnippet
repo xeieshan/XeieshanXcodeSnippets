@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>IDECodeSnippetCompletionPrefix</key>
+	<string>isEmail</string>
+	<key>IDECodeSnippetCompletionScopes</key>
+	<array>
+		<string>ClassImplementation</string>
+	</array>
+	<key>IDECodeSnippetContents</key>
+	<string>- (BOOL) isEmail {
+        NSString *emailRegEx =
+        @"(?:[a-z0-9!#$%\\&amp;Ã¢ï¿½ï¿½*+/=?\\^_`{|}~-]+(?:\\.[a-z0-9!#$%\\&amp;Ã¢ï¿½ï¿½*+/=?\\^_`{|}"
+        @"~-]+)*|\Ã¢ï¿½ï¿½(?:[\\x01-\\x08\\x0b\\x0c\\x0e-\\x1f\\x21\\x23-\\x5b\\x5d-\\"
+        @"x7f]|\\\\[\\x01-\\x09\\x0b\\x0c\\x0e-\\x7f])*\Ã¢ï¿½ï¿½)@(?:(?:[a-z0-9](?:[a-"
+        @"z0-9-]*[a-z0-9])?\\.)+[a-z0-9](?:[a-z0-9-]*[a-z0-9])?|\\[(?:(?:25[0-5"
+        @"]|2[0-4][0-9]|[01]?[0-9][0-9]?)\\.){3}(?:25[0-5]|2[0-4][0-9]|[01]?[0-"
+        @"9][0-9]?|[a-z0-9-]*[a-z0-9]:(?:[\\x01-\\x08\\x0b\\x0c\\x0e-\\x1f\\x21"
+        @"-\\x5a\\x53-\\x7f]|\\\\[\\x01-\\x09\\x0b\\x0c\\x0e-\\x7f])+)\\])";
+        
+        NSPredicate *regExPredicate = [NSPredicate predicateWithFormat:@"SELF MATCHES %@",  emailRegEx];
+        
+        return [regExPredicate evaluateWithObject:self];
+    }</string>
+	<key>IDECodeSnippetIdentifier</key>
+	<string>5D591E44-5409-47B4-8F14-FC42ADBA2855</string>
+	<key>IDECodeSnippetLanguage</key>
+	<string>Xcode.SourceCodeLanguage.Objective-C</string>
+	<key>IDECodeSnippetTitle</key>
+	<string>Email with RegEx</string>
+	<key>IDECodeSnippetUserSnippet</key>
+	<true/>
+	<key>IDECodeSnippetVersion</key>
+	<integer>2</integer>
+</dict>
+</plist>

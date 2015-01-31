@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>IDECodeSnippetCompletionPrefix</key>
+	<string>showModalDialog</string>
+	<key>IDECodeSnippetCompletionScopes</key>
+	<array>
+		<string>CodeBlock</string>
+		<string>ClassImplementation</string>
+	</array>
+	<key>IDECodeSnippetContents</key>
+	<string>#pragma mark -
+#pragma mark Show Modal Dialog
+#pragma mark -
+
+-(IBAction)showModalDialog:(id)sender
+{
+    
+    PurchaseWindowViewController* viewController = [[PurchaseWindowViewController alloc] initWithNibName:@"PurchaseWindowViewController" bundle:nil];
+    
+    UINavigationController *navController = [[UINavigationController alloc]
+                                             initWithRootViewController:viewController];
+    
+    
+    navController.modalPresentationStyle = UIModalPresentationFormSheet;
+    navController.modalTransitionStyle = UIModalTransitionStyleCrossDissolve;
+    
+    viewController.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:NSLocalizedString(@"Cancel", @"") style:UIBarButtonItemStyleBordered target:self action:@selector(close)];
+    
+    [self presentModalViewController:navController animated:YES];
+    
+    //targetController.view.superview.frame = CGRectMake(0, 0, 200, 200);//it's important to do this after presentModalViewController
+    //targetController.view.superview.center = self.view.center;
+    
+    // Clean up resources
+    [navController release];
+    [viewController release];
+    
+}
+
+//Close method in View Controller
+- (void)close
+{
+    [self dismissModalViewControllerAnimated:YES];
+}</string>
+	<key>IDECodeSnippetIdentifier</key>
+	<string>43E7572D-4B7B-44C6-9407-520120C73A71</string>
+	<key>IDECodeSnippetLanguage</key>
+	<string>Xcode.SourceCodeLanguage.Objective-C</string>
+	<key>IDECodeSnippetSummary</key>
+	<string>Show Modal Dialog</string>
+	<key>IDECodeSnippetTitle</key>
+	<string>Show Modal Dialog</string>
+	<key>IDECodeSnippetUserSnippet</key>
+	<true/>
+	<key>IDECodeSnippetVersion</key>
+	<integer>2</integer>
+</dict>
+</plist>

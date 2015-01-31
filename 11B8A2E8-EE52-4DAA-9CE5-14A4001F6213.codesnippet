@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>IDECodeSnippetCompletionScopes</key>
+	<array>
+		<string>All</string>
+	</array>
+	<key>IDECodeSnippetContents</key>
+	<string>#import &lt;mach/mach_time.h&gt; // for mach_absolute_time
+
+double MachTimeToSecs(uint64_t time)
+{
+    mach_timebase_info_data_t timebase;
+    mach_timebase_info(&amp;timebase);
+    return (double)time * (double)timebase.numer /
+    (double)timebase.denom / 1e9;
+}
+
+- (void)profileDoSomething
+{
+    uint64_t begin = mach_absolute_time();
+    [self doSomething];
+    uint64_t end = mach_absolute_time();
+    NSLog(@"Time taken to doSomething %g s",
+          MachTimeToSecs(end - begin));
+}</string>
+	<key>IDECodeSnippetIdentifier</key>
+	<string>11B8A2E8-EE52-4DAA-9CE5-14A4001F6213</string>
+	<key>IDECodeSnippetLanguage</key>
+	<string>Xcode.SourceCodeLanguage.Objective-C</string>
+	<key>IDECodeSnippetSummary</key>
+	<string>Quick Performance Measurements</string>
+	<key>IDECodeSnippetTitle</key>
+	<string>Quick Performance Measurements</string>
+	<key>IDECodeSnippetUserSnippet</key>
+	<true/>
+	<key>IDECodeSnippetVersion</key>
+	<integer>2</integer>
+</dict>
+</plist>

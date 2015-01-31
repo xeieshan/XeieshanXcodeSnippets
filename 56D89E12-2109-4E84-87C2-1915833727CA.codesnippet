@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>IDECodeSnippetCompletionScopes</key>
+	<array>
+		<string>All</string>
+	</array>
+	<key>IDECodeSnippetContents</key>
+	<string>#if  ! __has_feature(objc_arc)
+#define IDZ_RETAIN(_o) [(_o) retain]
+#define IDZ_RELEASE(_o) [(_o) release]
+#define IDZ_AUTORELEASE(_o) [(_o) autorelease]
+#define IDZ_SUPER_DEALLOC [super dealloc]
+#define IDZ_BRIDGE_CAST(_type, _identifier) ((_type)(_identifier))
+#else
+#define IDZ_RETAIN(_o) (_o)
+#define IDZ_RELEASE(_o)
+#define IDZ_AUTORELEASE(_o) (_o)
+#define IDZ_SUPER_DEALLOC
+#define IDZ_BRIDGE_CAST(_type, _identifier) ((__bridge _type)(_identifier))
+#endif</string>
+	<key>IDECodeSnippetIdentifier</key>
+	<string>56D89E12-2109-4E84-87C2-1915833727CA</string>
+	<key>IDECodeSnippetLanguage</key>
+	<string>Xcode.SourceCodeLanguage.Objective-C</string>
+	<key>IDECodeSnippetSummary</key>
+	<string>converting old non-ARC code to ARC-agnostic code</string>
+	<key>IDECodeSnippetTitle</key>
+	<string>converting old non-ARC code to ARC-agnostic code</string>
+	<key>IDECodeSnippetUserSnippet</key>
+	<true/>
+	<key>IDECodeSnippetVersion</key>
+	<integer>2</integer>
+</dict>
+</plist>

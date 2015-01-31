@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>IDECodeSnippetCompletionScopes</key>
+	<array>
+		<string>ClassImplementation</string>
+	</array>
+	<key>IDECodeSnippetContents</key>
+	<string>#pragma mark -
+#pragma mark fade
+#pragma mark -
+
+- (void) fadein {
+    if(self.view.alpha &lt; 1.5){
+        self.view.alpha = self.view.alpha + 0.01;
+        [self performSelector:@selector(fadein) withObject:nil afterDelay:0.006];
+    }
+}
+-(void)viewDidAppear:(BOOL)animated{
+    self.view.alpha = 0;
+    [self performSelector:@selector(fadein) withObject:nil afterDelay:0.006];
+}
+
+-(void)viewWillAppear:(BOOL)animated{
+    self.view.alpha = 0;
+    [UIView animateWithDuration: .25 animations: ^{
+        self.view.alpha = 1.0;
+    }];}
+</string>
+	<key>IDECodeSnippetIdentifier</key>
+	<string>52DD6450-E29E-473A-A61F-CD30B8E01B5F</string>
+	<key>IDECodeSnippetLanguage</key>
+	<string>Xcode.SourceCodeLanguage.Objective-C</string>
+	<key>IDECodeSnippetTitle</key>
+	<string>Fade In</string>
+	<key>IDECodeSnippetUserSnippet</key>
+	<true/>
+	<key>IDECodeSnippetVersion</key>
+	<integer>2</integer>
+</dict>
+</plist>

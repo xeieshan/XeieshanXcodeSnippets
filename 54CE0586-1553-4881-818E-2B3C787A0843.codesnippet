@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>IDECodeSnippetCompletionScopes</key>
+	<array>
+		<string>ClassImplementation</string>
+	</array>
+	<key>IDECodeSnippetContents</key>
+	<string>-(IBAction)buttonClick:(id)sender
+{
+    
+    PurchaseWindowViewController* viewController = [[PurchaseWindowViewController alloc] initWithNibName:@"PurchaseWindowViewController" bundle:nil];
+    
+    UINavigationController *navController = [[UINavigationController alloc]
+                                             initWithRootViewController:viewController];
+    
+    
+    navController.modalPresentationStyle = UIModalPresentationFormSheet;
+    navController.modalTransitionStyle = UIModalTransitionStyleCrossDissolve;
+    
+    viewController.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:NSLocalizedString(@"Cancel", @"") style:UIBarButtonItemStyleBordered target:self action:@selector(close)];
+    
+    [self presentModalViewController:navController animated:YES];
+    
+    //targetController.view.superview.frame = CGRectMake(0, 0, 200, 200);//it's important to do this after presentModalViewController
+    //targetController.view.superview.center = self.view.center;
+    
+    // Clean up resources
+    [navController release];
+    [viewController release];
+    
+}
+
+
+- (void)close
+{
+    [self dismissModalViewControllerAnimated:YES];
+}</string>
+	<key>IDECodeSnippetIdentifier</key>
+	<string>54CE0586-1553-4881-818E-2B3C787A0843</string>
+	<key>IDECodeSnippetLanguage</key>
+	<string>Xcode.SourceCodeLanguage.Objective-C</string>
+	<key>IDECodeSnippetTitle</key>
+	<string>My Code Snippet</string>
+	<key>IDECodeSnippetUserSnippet</key>
+	<true/>
+	<key>IDECodeSnippetVersion</key>
+	<integer>2</integer>
+</dict>
+</plist>

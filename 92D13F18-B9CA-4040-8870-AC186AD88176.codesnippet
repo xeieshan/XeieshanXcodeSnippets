@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>IDECodeSnippetCompletionPrefix</key>
+	<string>textFieldDidUpdate</string>
+	<key>IDECodeSnippetCompletionScopes</key>
+	<array>
+		<string>ClassImplementation</string>
+	</array>
+	<key>IDECodeSnippetContents</key>
+	<string>-(IBAction) textFieldDidUpdate:(id)sender {
+	UITextField * textField = (UITextField *) sender;
+    
+	NSDictionary * filteredWords = [NSDictionary dictionaryWithObjectsAndKeys:
+                                    @"fecal matter",@"poop",
+                                    @"patooti",@"butt",
+                                    @"Worst band ever",@"Nickelback",
+                                    @"nice person",@"douche bag",nil];
+	NSString * newString = textField.text;
+    
+	for(NSString * naughtyWord in filteredWords.allKeys) {
+		NSString * goodWord = [filteredWords objectForKey:naughtyWord];
+		NSLog(@"replacing %@ ",naughtyWord);
+		newString = [newString stringByReplacingOccurrencesOfString:naughtyWord
+                                                         withString:goodWord];
+	}
+    
+	liveOutputTextView.text = newString;
+}</string>
+	<key>IDECodeSnippetIdentifier</key>
+	<string>92D13F18-B9CA-4040-8870-AC186AD88176</string>
+	<key>IDECodeSnippetLanguage</key>
+	<string>Xcode.SourceCodeLanguage.Objective-C</string>
+	<key>IDECodeSnippetTitle</key>
+	<string>Textfield Word Filter</string>
+	<key>IDECodeSnippetUserSnippet</key>
+	<true/>
+	<key>IDECodeSnippetVersion</key>
+	<integer>2</integer>
+</dict>
+</plist>

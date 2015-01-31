@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>IDECodeSnippetCompletionPrefix</key>
+	<string>CheetSheet Delegate</string>
+	<key>IDECodeSnippetCompletionScopes</key>
+	<array>
+		<string>All</string>
+	</array>
+	<key>IDECodeSnippetContents</key>
+	<string>#import &lt;UIKit/UIKit.h&gt;
+        #import "Person.h"
+         
+         @protocol AddPersonTableViewControllerDelegate &lt;NSObject&gt;
+         - (void)didSelectPerson:(Person *)person;
+         @end
+         
+         @interface AddPersonTableViewController : UITableViewController
+         
+         @property (nonatomic, weak) id &lt;AddPersonTableViewControllerDelegate&gt;delegate;
+         
+         @end
+         AddPersonViewController.m
+         
+         // Other implementation details left out
+         
+         - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
+         {
+             Person *person = [people objectAtIndex:indexPath.row];
+             [self.delegate didSelectPerson:person];
+         }
+         GroupViewController.m (the normal view)
+         
+         // Other implementation details left out, such as showing the modal view
+         // and setting the delegate to self
+         
+        #pragma mark - AddPersonTableViewControllerDelegate
+         
+         - (void)didSelectPerson:(Person *)person
+         {
+             [self dismissViewControllerAnimated:YES completion:nil];
+             
+             NSLog(@"Selected person: %@", person.fullName);
+         }</string>
+	<key>IDECodeSnippetIdentifier</key>
+	<string>2D6051AB-0176-4B89-8C7E-6532F48D2899</string>
+	<key>IDECodeSnippetLanguage</key>
+	<string>Xcode.SourceCodeLanguage.Objective-C</string>
+	<key>IDECodeSnippetSummary</key>
+	<string>Delegate Cheet Sheet</string>
+	<key>IDECodeSnippetTitle</key>
+	<string>Delegate Cheet Sheet</string>
+	<key>IDECodeSnippetUserSnippet</key>
+	<true/>
+	<key>IDECodeSnippetVersion</key>
+	<integer>2</integer>
+</dict>
+</plist>
